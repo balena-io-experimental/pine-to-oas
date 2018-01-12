@@ -3,6 +3,10 @@
  * converting to JSON, and passing it to https://www.npmjs.com/package/json-schema-to-typescript
  */
 
+// Custom: oddly, this isn't defined in the spec
+// Length is here to strip 'undefined' from the options.
+type OasDataType = Schema['type'] & { length: number };
+
 export type Parameter = ParameterWithSchema | ParameterWithContent;
 export type ParameterWithSchema = ParameterWithSchemaWithExample | ParameterWithSchemaWithExamples;
 export type ParameterWithSchemaWithExample =
@@ -34,7 +38,8 @@ export interface Oas {
   servers?: Server[];
   security?: SecurityRequirement[];
   tags?: Tag[];
-  paths: Paths;
+  // Custom: defined this properly
+  paths: { [key: string]: PathItem };
   components?: Components;
 }
 export interface Info {
@@ -78,7 +83,6 @@ export interface Tag {
   description?: string;
   externalDocs?: ExternalDocumentation;
 }
-export interface Paths {}
 /**
  * This interface was referenced by `Paths`'s JSON-Schema definition
  * via the `patternProperty` "^\/".
