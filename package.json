@@ -4,8 +4,8 @@
   "description": "Demo generating OpenAPI Specification from PineJS models",
   "main": "build/index.js",
   "scripts": {
-    "start": "ts-node lib/index.ts",
-    "build": "tsc"
+    "build": "ts-node lib/index.ts",
+    "start": "npm run build && static-server"
   },
   "repository": {
     "type": "git",
