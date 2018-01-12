@@ -82,6 +82,7 @@ function addPaths(oas: Oas, pine: PineSchema) {
     const models = _(pine.tables)
     .values()
     .sortBy((m) => getResourceName(m, pine))
+    .filter((m) => getResourceName(m, pine).indexOf('-has-') === -1)
     .map((model) => {
         const name = getResourceName(model, pine);
 

@@ -47,7 +47,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/actor'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/actor'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -94,101 +94,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/api_key'}
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /api_key-has-permission:
-        get:
-            summary: 'Get all api_key-has-permissions'
-            operationId: getAllapi_key-has-permission
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got api_key-has-permissions'
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    d: {type: array, items: {$ref: '#/components/schemas/api_key-has-permission'}}
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    '/api_key-has-permission({id})':
-        get:
-            summary: 'Get api_key-has-permission by id'
-            operationId: getapi_key-has-permissionById
-            parameters:
-                -
-                    name: id
-                    in: path
-                    require: true
-                    description: 'The id of the api_key-has-permission'
-                    schema:
-                        type: number
-            responses:
-                '200':
-                    description: 'Successfully got api_key-has-permission'
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    d: {$ref: '#/components/schemas/api_key-has-permission'}
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /api_key-has-role:
-        get:
-            summary: 'Get all api_key-has-roles'
-            operationId: getAllapi_key-has-role
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got api_key-has-roles'
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    d: {type: array, items: {$ref: '#/components/schemas/api_key-has-role'}}
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    '/api_key-has-role({id})':
-        get:
-            summary: 'Get api_key-has-role by id'
-            operationId: getapi_key-has-roleById
-            parameters:
-                -
-                    name: id
-                    in: path
-                    require: true
-                    description: 'The id of the api_key-has-role'
-                    schema:
-                        type: number
-            responses:
-                '200':
-                    description: 'Successfully got api_key-has-role'
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    d: {$ref: '#/components/schemas/api_key-has-role'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/api_key'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -235,7 +141,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/application'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/application'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -282,7 +188,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/beta_signup'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/beta_signup'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -329,7 +235,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/billing_plan'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/billing_plan'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -376,7 +282,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/build'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/build'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -423,7 +329,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/config'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/config'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -470,7 +376,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/csp_report'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/csp_report'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -517,7 +423,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/device'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/device'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -564,7 +470,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/device_environment_variable'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/device_environment_variable'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -611,7 +517,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/environment_variable'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/environment_variable'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -658,7 +564,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/event'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/event'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -705,7 +611,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/image_download'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/image_download'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -752,7 +658,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/permission'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/permission'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -799,7 +705,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/recovery_two_factor'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/recovery_two_factor'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -846,54 +752,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/role'}
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /role-has-permission:
-        get:
-            summary: 'Get all role-has-permissions'
-            operationId: getAllrole-has-permission
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got role-has-permissions'
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    d: {type: array, items: {$ref: '#/components/schemas/role-has-permission'}}
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    '/role-has-permission({id})':
-        get:
-            summary: 'Get role-has-permission by id'
-            operationId: getrole-has-permissionById
-            parameters:
-                -
-                    name: id
-                    in: path
-                    require: true
-                    description: 'The id of the role-has-permission'
-                    schema:
-                        type: number
-            responses:
-                '200':
-                    description: 'Successfully got role-has-permission'
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    d: {$ref: '#/components/schemas/role-has-permission'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/role'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -940,7 +799,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/service_instance'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/service_instance'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -987,7 +846,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/social_service_account'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/social_service_account'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -1034,7 +893,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/supervisor_release'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/supervisor_release'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -1081,7 +940,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/user'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/user'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -1128,7 +987,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/user_application_membership'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_application_membership'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -1175,7 +1034,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/user_permission'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_permission'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -1222,7 +1081,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/user_public_key'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_public_key'}}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -1269,7 +1128,7 @@ paths:
                             schema:
                                 type: object
                                 properties:
-                                    d: {$ref: '#/components/schemas/user_role'}
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_role'}}
                 default:
                     description: 'Unexpected error'
                     content:
