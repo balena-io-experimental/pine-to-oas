@@ -1,42 +1,1337 @@
 openapi: 3.0.1
 info:
-  description: Resin.io API
-  version: 3.0.0
-  title: Resin.io
+    title: Resin.io
+    version: 3.0.0
+    description: 'Resin.io Data API'
 servers:
-  - url: 'https://api.resin.io/v3'
+    -
+        url: 'https://api.resin.io/v3'
 paths:
-  '/device({id})':
-    get:
-      summary: Get a single device
-      operationId: getDevice
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: The id of the device
-          schema:
-            type: number
-      responses:
-        '200':
-          description: Expected response to a valid request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Device'
+    /actor:
+        get:
+            summary: 'Get all actors'
+            operationId: getAllactor
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got actors'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/actor'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user:
+        get:
+            summary: 'Get all users'
+            operationId: getAlluser
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got users'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/user'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /permission:
+        get:
+            summary: 'Get all permissions'
+            operationId: getAllpermission
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got permissions'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/permission'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /role:
+        get:
+            summary: 'Get all roles'
+            operationId: getAllrole
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got roles'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/role'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /role-has-permission:
+        get:
+            summary: 'Get all role-has-permissions'
+            operationId: getAllrole-has-permission
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got role-has-permissions'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/role-has-permission'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_role:
+        get:
+            summary: 'Get all user_roles'
+            operationId: getAlluser_role
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_roles'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/user_role'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_permission:
+        get:
+            summary: 'Get all user_permissions'
+            operationId: getAlluser_permission
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_permissions'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/user_permission'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /api_key:
+        get:
+            summary: 'Get all api_keys'
+            operationId: getAllapi_key
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got api_keys'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api_key'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /api_key-has-role:
+        get:
+            summary: 'Get all api_key-has-roles'
+            operationId: getAllapi_key-has-role
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got api_key-has-roles'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api_key-has-role'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /api_key-has-permission:
+        get:
+            summary: 'Get all api_key-has-permissions'
+            operationId: getAllapi_key-has-permission
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got api_key-has-permissions'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api_key-has-permission'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_public_key:
+        get:
+            summary: 'Get all user_public_keys'
+            operationId: getAlluser_public_key
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_public_keys'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/user_public_key'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /social_service_account:
+        get:
+            summary: 'Get all social_service_accounts'
+            operationId: getAllsocial_service_account
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got social_service_accounts'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/social_service_account'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /build:
+        get:
+            summary: 'Get all builds'
+            operationId: getAllbuild
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got builds'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/build'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /application:
+        get:
+            summary: 'Get all applications'
+            operationId: getAllapplication
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got applications'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/application'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_application_membership:
+        get:
+            summary: 'Get all user_application_memberships'
+            operationId: getAlluser_application_membership
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_application_memberships'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/user_application_membership'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /supervisor_release:
+        get:
+            summary: 'Get all supervisor_releases'
+            operationId: getAllsupervisor_release
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got supervisor_releases'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/supervisor_release'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /service_instance:
+        get:
+            summary: 'Get all service_instances'
+            operationId: getAllservice_instance
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got service_instances'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/service_instance'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /device:
+        get:
+            summary: 'Get all devices'
+            operationId: getAlldevice
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got devices'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/device'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /environment_variable:
+        get:
+            summary: 'Get all environment_variables'
+            operationId: getAllenvironment_variable
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got environment_variables'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/environment_variable'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /device_environment_variable:
+        get:
+            summary: 'Get all device_environment_variables'
+            operationId: getAlldevice_environment_variable
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got device_environment_variables'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/device_environment_variable'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /beta_signup:
+        get:
+            summary: 'Get all beta_signups'
+            operationId: getAllbeta_signup
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got beta_signups'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/beta_signup'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /csp_report:
+        get:
+            summary: 'Get all csp_reports'
+            operationId: getAllcsp_report
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got csp_reports'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/csp_report'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /event:
+        get:
+            summary: 'Get all events'
+            operationId: getAllevent
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got events'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/event'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /image_download:
+        get:
+            summary: 'Get all image_downloads'
+            operationId: getAllimage_download
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got image_downloads'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/image_download'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /config:
+        get:
+            summary: 'Get all configs'
+            operationId: getAllconfig
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got configs'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/config'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /billing_plan:
+        get:
+            summary: 'Get all billing_plans'
+            operationId: getAllbilling_plan
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got billing_plans'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/billing_plan'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /recovery_two_factor:
+        get:
+            summary: 'Get all recovery_two_factors'
+            operationId: getAllrecovery_two_factor
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got recovery_two_factors'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/recovery_two_factor'
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
 components:
-  securitySchemes:
-    token:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT|apiKey
-  schemas:
-    Device:
-      required:
-        - id
-      properties:
-        id:
-          type: integer
-          format: int64
+    schemas:
+        actor:
+            required:
+                - 'created at'
+                - id
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+        user:
+            required:
+                - 'created at'
+                - id
+                - actor
+                - username
+                - 'is two factor protected'
+                - 'has disabled newsletter'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                actor:
+                    type: integer
+                    nullable: false
+                username:
+                    type: string
+                    nullable: false
+                password:
+                    type: string
+                    nullable: true
+                two_factor_key:
+                    type: string
+                    nullable: true
+                is_two_factor_protected:
+                    type: boolean
+                    nullable: false
+                has_disabled_newsletter:
+                    type: boolean
+                    nullable: false
+                jwt_secret:
+                    type: string
+                    nullable: true
+                email:
+                    type: string
+                    nullable: true
+                automatic_login_code:
+                    type: string
+                    nullable: true
+                first_name:
+                    type: string
+                    nullable: true
+                last_name:
+                    type: string
+                    nullable: true
+                company:
+                    type: string
+                    nullable: true
+                billing_account_code:
+                    type: string
+                    nullable: true
+                account_type:
+                    type: string
+                    nullable: true
+        permission:
+            required:
+                - 'created at'
+                - id
+                - name
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                name:
+                    type: string
+                    nullable: false
+        role:
+            required:
+                - 'created at'
+                - id
+                - name
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                name:
+                    type: string
+                    nullable: false
+        role-has-permission:
+            required:
+                - 'created at'
+                - role
+                - permission
+                - id
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                role:
+                    type: integer
+                    nullable: false
+                permission:
+                    type: integer
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+        user_role:
+            required:
+                - 'created at'
+                - user
+                - role
+                - id
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                user:
+                    type: integer
+                    nullable: false
+                role:
+                    type: integer
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                expiry_date:
+                    type: string
+                    nullable: true
+        user_permission:
+            required:
+                - 'created at'
+                - user
+                - permission
+                - id
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                user:
+                    type: integer
+                    nullable: false
+                permission:
+                    type: integer
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                expiry_date:
+                    type: string
+                    nullable: true
+        api_key:
+            required:
+                - 'created at'
+                - id
+                - key
+                - 'is of-actor'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                key:
+                    type: string
+                    nullable: false
+                is_of__actor:
+                    type: integer
+                    nullable: false
+                name:
+                    type: string
+                    nullable: true
+                description:
+                    type: string
+                    nullable: true
+        api_key-has-role:
+            required:
+                - 'created at'
+                - 'api key'
+                - role
+                - id
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                api_key:
+                    type: integer
+                    nullable: false
+                role:
+                    type: integer
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+        api_key-has-permission:
+            required:
+                - 'created at'
+                - 'api key'
+                - permission
+                - id
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                api_key:
+                    type: integer
+                    nullable: false
+                permission:
+                    type: integer
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+        user_public_key:
+            required:
+                - 'created at'
+                - user
+                - 'public key'
+                - id
+                - title
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                user:
+                    type: integer
+                    nullable: false
+                public_key:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                title:
+                    type: string
+                    nullable: false
+        social_service_account:
+            required:
+                - 'created at'
+                - id
+                - 'belongs to-user'
+                - provider
+                - 'remote id'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                belongs_to__user:
+                    type: integer
+                    nullable: false
+                provider:
+                    type: string
+                    nullable: false
+                remote_id:
+                    type: string
+                    nullable: false
+                display_name:
+                    type: string
+                    nullable: true
+        build:
+            required:
+                - 'created at'
+                - id
+                - 'belongs to-application'
+                - 'belongs to-user'
+                - source
+                - 'commit hash'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                belongs_to__application:
+                    type: integer
+                    nullable: false
+                belongs_to__user:
+                    type: integer
+                    nullable: false
+                source:
+                    type: string
+                    nullable: false
+                commit_hash:
+                    type: string
+                    nullable: false
+                push_timestamp:
+                    type: string
+                    nullable: true
+                start_timestamp:
+                    type: string
+                    nullable: true
+                end_timestamp:
+                    type: string
+                    nullable: true
+                update_timestamp:
+                    type: string
+                    nullable: true
+                project_type:
+                    type: string
+                    nullable: true
+                status:
+                    type: string
+                    nullable: true
+                message:
+                    type: string
+                    nullable: true
+                log:
+                    type: string
+                    nullable: true
+        application:
+            required:
+                - 'created at'
+                - user
+                - 'app name'
+                - id
+                - actor
+                - 'device type'
+                - 'VPN host'
+                - 'VPN port'
+                - 'git repository'
+                - version
+                - 'should track latest release'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                user:
+                    type: integer
+                    nullable: false
+                app_name:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                actor:
+                    type: integer
+                    nullable: false
+                device_type:
+                    type: string
+                    nullable: false
+                VPN_host:
+                    type: string
+                    nullable: false
+                VPN_port:
+                    type: integer
+                    nullable: false
+                git_repository:
+                    type: string
+                    nullable: false
+                commit:
+                    type: string
+                    nullable: true
+                is_accessible_by_support_until__date:
+                    type: string
+                    nullable: true
+                version:
+                    type: integer
+                    nullable: false
+                depends_on__application:
+                    type: integer
+                    nullable: true
+                should_track_latest_release:
+                    type: boolean
+                    nullable: false
+        user_application_membership:
+            required:
+                - 'created at'
+                - user
+                - 'is member of-application'
+                - id
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                user:
+                    type: integer
+                    nullable: false
+                is_member_of__application:
+                    type: integer
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                role_title:
+                    type: string
+                    nullable: true
+        supervisor_release:
+            required:
+                - 'created at'
+                - id
+                - 'supervisor version'
+                - 'device type'
+                - 'image name'
+                - 'is public'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                supervisor_version:
+                    type: string
+                    nullable: false
+                device_type:
+                    type: string
+                    nullable: false
+                image_name:
+                    type: string
+                    nullable: false
+                is_public:
+                    type: boolean
+                    nullable: false
+                note:
+                    type: string
+                    nullable: true
+        service_instance:
+            required:
+                - 'created at'
+                - id
+                - 'service type'
+                - 'ip address'
+                - 'last heartbeat'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                service_type:
+                    type: string
+                    nullable: false
+                ip_address:
+                    type: string
+                    nullable: false
+                last_heartbeat:
+                    type: string
+                    nullable: false
+        device:
+            required:
+                - 'created at'
+                - id
+                - actor
+                - uuid
+                - 'device type'
+                - 'belongs to-user'
+                - 'is online'
+                - 'is connected to vpn'
+                - 'is web accessible'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                actor:
+                    type: integer
+                    nullable: false
+                uuid:
+                    type: string
+                    nullable: false
+                local_id:
+                    type: string
+                    nullable: true
+                name:
+                    type: string
+                    nullable: true
+                note:
+                    type: string
+                    nullable: true
+                device_type:
+                    type: string
+                    nullable: false
+                belongs_to__application:
+                    type: integer
+                    nullable: true
+                belongs_to__user:
+                    type: integer
+                    nullable: false
+                is_online:
+                    type: boolean
+                    nullable: false
+                last_connectivity_event:
+                    type: string
+                    nullable: true
+                is_connected_to_vpn:
+                    type: boolean
+                    nullable: false
+                last_vpn_event:
+                    type: string
+                    nullable: true
+                is_locked_until__date:
+                    type: string
+                    nullable: true
+                latitude:
+                    type: string
+                    nullable: true
+                longitude:
+                    type: string
+                    nullable: true
+                custom_latitude:
+                    type: string
+                    nullable: true
+                custom_longitude:
+                    type: string
+                    nullable: true
+                location:
+                    type: string
+                    nullable: true
+                logs_channel:
+                    type: string
+                    nullable: true
+                public_address:
+                    type: string
+                    nullable: true
+                vpn_address:
+                    type: string
+                    nullable: true
+                ip_address:
+                    type: string
+                    nullable: true
+                is_on__commit:
+                    type: string
+                    nullable: true
+                is_accessible_by_support_until__date:
+                    type: string
+                    nullable: true
+                status:
+                    type: string
+                    nullable: true
+                os_version:
+                    type: string
+                    nullable: true
+                os_variant:
+                    type: string
+                    nullable: true
+                supervisor_version:
+                    type: string
+                    nullable: true
+                should_be_managed_by__supervisor_release:
+                    type: integer
+                    nullable: true
+                provisioning_progress:
+                    type: integer
+                    nullable: true
+                provisioning_state:
+                    type: string
+                    nullable: true
+                download_progress:
+                    type: integer
+                    nullable: true
+                api_port:
+                    type: integer
+                    nullable: true
+                api_secret:
+                    type: string
+                    nullable: true
+                is_managed_by__service_instance:
+                    type: integer
+                    nullable: true
+                is_web_accessible:
+                    type: boolean
+                    nullable: false
+                should_be_running__build:
+                    type: integer
+                    nullable: true
+                is_managed_by__device:
+                    type: integer
+                    nullable: true
+        environment_variable:
+            required:
+                - 'created at'
+                - application
+                - name
+                - id
+                - value
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                application:
+                    type: integer
+                    nullable: false
+                name:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                value:
+                    type: string
+                    nullable: false
+        device_environment_variable:
+            required:
+                - 'created at'
+                - device
+                - 'env var name'
+                - id
+                - value
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                device:
+                    type: integer
+                    nullable: false
+                env_var_name:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                value:
+                    type: string
+                    nullable: false
+        beta_signup:
+            required:
+                - 'created at'
+                - id
+                - email
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                email:
+                    type: string
+                    nullable: false
+        csp_report:
+            required:
+                - 'created at'
+                - id
+                - 'document uri'
+                - 'blocked uri'
+                - 'violated directive'
+                - 'original policy'
+                - 'incidents counter'
+                - 'last seen time'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                document_uri:
+                    type: string
+                    nullable: false
+                blocked_uri:
+                    type: string
+                    nullable: false
+                referrer:
+                    type: string
+                    nullable: true
+                violated_directive:
+                    type: string
+                    nullable: false
+                original_policy:
+                    type: string
+                    nullable: false
+                incidents_counter:
+                    type: integer
+                    nullable: false
+                last_seen_time:
+                    type: string
+                    nullable: false
+        event:
+            required:
+                - 'created at'
+                - id
+                - 'interaction uuid'
+                - type
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                interaction_uuid:
+                    type: string
+                    nullable: false
+                type:
+                    type: string
+                    nullable: false
+                json_data:
+                    type: string
+                    nullable: true
+                belongs_to__user:
+                    type: integer
+                    nullable: true
+                application_id:
+                    type: integer
+                    nullable: true
+                device_id:
+                    type: integer
+                    nullable: true
+        image_download:
+            required:
+                - 'created at'
+                - id
+                - 'belongs to-application'
+                - 'belongs to-user'
+                - 'device type'
+                - 'os version'
+                - 'file name'
+                - 'file size'
+                - 'bytes sent'
+                - 'start timestamp'
+                - 'end timestamp'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                belongs_to__application:
+                    type: integer
+                    nullable: false
+                belongs_to__user:
+                    type: integer
+                    nullable: false
+                device_type:
+                    type: string
+                    nullable: false
+                os_version:
+                    type: string
+                    nullable: false
+                file_name:
+                    type: string
+                    nullable: false
+                file_size:
+                    type: integer
+                    nullable: false
+                bytes_sent:
+                    type: integer
+                    nullable: false
+                start_timestamp:
+                    type: string
+                    nullable: false
+                end_timestamp:
+                    type: string
+                    nullable: false
+        config:
+            required:
+                - 'created at'
+                - id
+                - key
+                - value
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                key:
+                    type: string
+                    nullable: false
+                value:
+                    type: string
+                    nullable: false
+                scope:
+                    type: string
+                    nullable: true
+                description:
+                    type: string
+                    nullable: true
+        billing_plan:
+            required:
+                - 'created at'
+                - id
+                - role
+                - title
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                role:
+                    type: integer
+                    nullable: false
+                title:
+                    type: string
+                    nullable: false
+        recovery_two_factor:
+            required:
+                - 'created at'
+                - id
+                - 'recovery code'
+                - 'belongs to-user'
+            properties:
+                created_at:
+                    type: string
+                    nullable: false
+                id:
+                    type: integer
+                    nullable: false
+                recovery_code:
+                    type: string
+                    nullable: false
+                used_timestamp:
+                    type: string
+                    nullable: true
+                belongs_to__user:
+                    type: integer
+                    nullable: false
+        Error:
+            properties: {}
+    securitySchemes:
+        token:
+            type: http
+            scheme: bearer
+            bearerFormat: JWT|apiKey
 security:
-  - token: []
+    -
+        token: []
