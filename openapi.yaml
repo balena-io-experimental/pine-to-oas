@@ -1,0 +1,42 @@
+openapi: 3.0.1
+info:
+  description: Resin.io API
+  version: 3.0.0
+  title: Resin.io
+servers:
+  - url: 'https://api.resin.io/v3'
+paths:
+  '/device({id})':
+    get:
+      summary: Get a single device
+      operationId: getDevice
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the device
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+components:
+  securitySchemes:
+    token:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT|apiKey
+  schemas:
+    Device:
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+security:
+  - token: []
