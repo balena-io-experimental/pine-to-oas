@@ -91,6 +91,7 @@ function addPaths(oas: Oas, pine: PineSchema) {
                 get: {
                     summary: `Get all ${name}s`,
                     operationId: `getAll${name}`,
+                    tags: [name],
                     parameters: [],
                     responses: {
                         '200': {
@@ -126,6 +127,7 @@ function addPaths(oas: Oas, pine: PineSchema) {
                 get: {
                     summary: `Get ${name} by id`,
                     operationId: `get${name}ById`,
+                    tags: [name],
                     parameters: [{
                         name: 'id',
                         in: 'path',

@@ -11,6 +11,8 @@ paths:
         get:
             summary: 'Get all actors'
             operationId: getAllactor
+            tags:
+                - actor
             parameters: []
             responses:
                 '200':
@@ -31,6 +33,8 @@ paths:
         get:
             summary: 'Get actor by id'
             operationId: getactorById
+            tags:
+                - actor
             parameters:
                 -
                     name: id
@@ -58,6 +62,8 @@ paths:
         get:
             summary: 'Get all api_keys'
             operationId: getAllapi_key
+            tags:
+                - api_key
             parameters: []
             responses:
                 '200':
@@ -78,6 +84,8 @@ paths:
         get:
             summary: 'Get api_key by id'
             operationId: getapi_keyById
+            tags:
+                - api_key
             parameters:
                 -
                     name: id
@@ -105,6 +113,8 @@ paths:
         get:
             summary: 'Get all applications'
             operationId: getAllapplication
+            tags:
+                - application
             parameters: []
             responses:
                 '200':
@@ -125,6 +135,8 @@ paths:
         get:
             summary: 'Get application by id'
             operationId: getapplicationById
+            tags:
+                - application
             parameters:
                 -
                     name: id
@@ -152,6 +164,8 @@ paths:
         get:
             summary: 'Get all beta_signups'
             operationId: getAllbeta_signup
+            tags:
+                - beta_signup
             parameters: []
             responses:
                 '200':
@@ -172,6 +186,8 @@ paths:
         get:
             summary: 'Get beta_signup by id'
             operationId: getbeta_signupById
+            tags:
+                - beta_signup
             parameters:
                 -
                     name: id
@@ -199,6 +215,8 @@ paths:
         get:
             summary: 'Get all billing_plans'
             operationId: getAllbilling_plan
+            tags:
+                - billing_plan
             parameters: []
             responses:
                 '200':
@@ -219,6 +237,8 @@ paths:
         get:
             summary: 'Get billing_plan by id'
             operationId: getbilling_planById
+            tags:
+                - billing_plan
             parameters:
                 -
                     name: id
@@ -246,6 +266,8 @@ paths:
         get:
             summary: 'Get all builds'
             operationId: getAllbuild
+            tags:
+                - build
             parameters: []
             responses:
                 '200':
@@ -266,6 +288,8 @@ paths:
         get:
             summary: 'Get build by id'
             operationId: getbuildById
+            tags:
+                - build
             parameters:
                 -
                     name: id
@@ -293,6 +317,8 @@ paths:
         get:
             summary: 'Get all configs'
             operationId: getAllconfig
+            tags:
+                - config
             parameters: []
             responses:
                 '200':
@@ -313,6 +339,8 @@ paths:
         get:
             summary: 'Get config by id'
             operationId: getconfigById
+            tags:
+                - config
             parameters:
                 -
                     name: id
@@ -340,6 +368,8 @@ paths:
         get:
             summary: 'Get all csp_reports'
             operationId: getAllcsp_report
+            tags:
+                - csp_report
             parameters: []
             responses:
                 '200':
@@ -360,6 +390,8 @@ paths:
         get:
             summary: 'Get csp_report by id'
             operationId: getcsp_reportById
+            tags:
+                - csp_report
             parameters:
                 -
                     name: id
@@ -387,6 +419,8 @@ paths:
         get:
             summary: 'Get all devices'
             operationId: getAlldevice
+            tags:
+                - device
             parameters: []
             responses:
                 '200':
@@ -407,6 +441,8 @@ paths:
         get:
             summary: 'Get device by id'
             operationId: getdeviceById
+            tags:
+                - device
             parameters:
                 -
                     name: id
@@ -434,6 +470,8 @@ paths:
         get:
             summary: 'Get all device_environment_variables'
             operationId: getAlldevice_environment_variable
+            tags:
+                - device_environment_variable
             parameters: []
             responses:
                 '200':
@@ -454,6 +492,8 @@ paths:
         get:
             summary: 'Get device_environment_variable by id'
             operationId: getdevice_environment_variableById
+            tags:
+                - device_environment_variable
             parameters:
                 -
                     name: id
@@ -481,6 +521,8 @@ paths:
         get:
             summary: 'Get all environment_variables'
             operationId: getAllenvironment_variable
+            tags:
+                - environment_variable
             parameters: []
             responses:
                 '200':
@@ -501,6 +543,8 @@ paths:
         get:
             summary: 'Get environment_variable by id'
             operationId: getenvironment_variableById
+            tags:
+                - environment_variable
             parameters:
                 -
                     name: id
@@ -528,6 +572,8 @@ paths:
         get:
             summary: 'Get all events'
             operationId: getAllevent
+            tags:
+                - event
             parameters: []
             responses:
                 '200':
@@ -548,6 +594,8 @@ paths:
         get:
             summary: 'Get event by id'
             operationId: geteventById
+            tags:
+                - event
             parameters:
                 -
                     name: id
@@ -575,6 +623,8 @@ paths:
         get:
             summary: 'Get all image_downloads'
             operationId: getAllimage_download
+            tags:
+                - image_download
             parameters: []
             responses:
                 '200':
@@ -595,6 +645,8 @@ paths:
         get:
             summary: 'Get image_download by id'
             operationId: getimage_downloadById
+            tags:
+                - image_download
             parameters:
                 -
                     name: id
@@ -622,6 +674,8 @@ paths:
         get:
             summary: 'Get all permissions'
             operationId: getAllpermission
+            tags:
+                - permission
             parameters: []
             responses:
                 '200':
@@ -642,6 +696,8 @@ paths:
         get:
             summary: 'Get permission by id'
             operationId: getpermissionById
+            tags:
+                - permission
             parameters:
                 -
                     name: id
@@ -669,6 +725,8 @@ paths:
         get:
             summary: 'Get all recovery_two_factors'
             operationId: getAllrecovery_two_factor
+            tags:
+                - recovery_two_factor
             parameters: []
             responses:
                 '200':
@@ -689,6 +747,8 @@ paths:
         get:
             summary: 'Get recovery_two_factor by id'
             operationId: getrecovery_two_factorById
+            tags:
+                - recovery_two_factor
             parameters:
                 -
                     name: id
@@ -716,6 +776,8 @@ paths:
         get:
             summary: 'Get all roles'
             operationId: getAllrole
+            tags:
+                - role
             parameters: []
             responses:
                 '200':
@@ -736,6 +798,8 @@ paths:
         get:
             summary: 'Get role by id'
             operationId: getroleById
+            tags:
+                - role
             parameters:
                 -
                     name: id
@@ -763,6 +827,8 @@ paths:
         get:
             summary: 'Get all service_instances'
             operationId: getAllservice_instance
+            tags:
+                - service_instance
             parameters: []
             responses:
                 '200':
@@ -783,6 +849,8 @@ paths:
         get:
             summary: 'Get service_instance by id'
             operationId: getservice_instanceById
+            tags:
+                - service_instance
             parameters:
                 -
                     name: id
@@ -810,6 +878,8 @@ paths:
         get:
             summary: 'Get all social_service_accounts'
             operationId: getAllsocial_service_account
+            tags:
+                - social_service_account
             parameters: []
             responses:
                 '200':
@@ -830,6 +900,8 @@ paths:
         get:
             summary: 'Get social_service_account by id'
             operationId: getsocial_service_accountById
+            tags:
+                - social_service_account
             parameters:
                 -
                     name: id
@@ -857,6 +929,8 @@ paths:
         get:
             summary: 'Get all supervisor_releases'
             operationId: getAllsupervisor_release
+            tags:
+                - supervisor_release
             parameters: []
             responses:
                 '200':
@@ -877,6 +951,8 @@ paths:
         get:
             summary: 'Get supervisor_release by id'
             operationId: getsupervisor_releaseById
+            tags:
+                - supervisor_release
             parameters:
                 -
                     name: id
@@ -904,6 +980,8 @@ paths:
         get:
             summary: 'Get all users'
             operationId: getAlluser
+            tags:
+                - user
             parameters: []
             responses:
                 '200':
@@ -924,6 +1002,8 @@ paths:
         get:
             summary: 'Get user by id'
             operationId: getuserById
+            tags:
+                - user
             parameters:
                 -
                     name: id
@@ -951,6 +1031,8 @@ paths:
         get:
             summary: 'Get all user_application_memberships'
             operationId: getAlluser_application_membership
+            tags:
+                - user_application_membership
             parameters: []
             responses:
                 '200':
@@ -971,6 +1053,8 @@ paths:
         get:
             summary: 'Get user_application_membership by id'
             operationId: getuser_application_membershipById
+            tags:
+                - user_application_membership
             parameters:
                 -
                     name: id
@@ -998,6 +1082,8 @@ paths:
         get:
             summary: 'Get all user_permissions'
             operationId: getAlluser_permission
+            tags:
+                - user_permission
             parameters: []
             responses:
                 '200':
@@ -1018,6 +1104,8 @@ paths:
         get:
             summary: 'Get user_permission by id'
             operationId: getuser_permissionById
+            tags:
+                - user_permission
             parameters:
                 -
                     name: id
@@ -1045,6 +1133,8 @@ paths:
         get:
             summary: 'Get all user_public_keys'
             operationId: getAlluser_public_key
+            tags:
+                - user_public_key
             parameters: []
             responses:
                 '200':
@@ -1065,6 +1155,8 @@ paths:
         get:
             summary: 'Get user_public_key by id'
             operationId: getuser_public_keyById
+            tags:
+                - user_public_key
             parameters:
                 -
                     name: id
@@ -1092,6 +1184,8 @@ paths:
         get:
             summary: 'Get all user_roles'
             operationId: getAlluser_role
+            tags:
+                - user_role
             parameters: []
             responses:
                 '200':
@@ -1112,6 +1206,8 @@ paths:
         get:
             summary: 'Get user_role by id'
             operationId: getuser_roleById
+            tags:
+                - user_role
             parameters:
                 -
                     name: id
