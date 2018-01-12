@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": false,
+        "outDir": "build",
+        "removeComments": true,
+        "rootDir": "lib/",
+        "preserveConstEnums": true,
+        "strict": true,
+        "sourceMap": true,
+        "target": "es2015"
+    },
+    "include": [
+        "typings/*.d.ts",
+        "lib/**/*.ts"
+    ]
+}
