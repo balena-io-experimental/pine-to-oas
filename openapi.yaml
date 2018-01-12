@@ -18,115 +18,36 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/actor'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/actor'}}
                 default:
                     description: 'Unexpected error'
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    /user:
+    '/actor({id})':
         get:
-            summary: 'Get all users'
-            operationId: getAlluser
-            parameters: []
+            summary: 'Get actor by id'
+            operationId: getactorById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the actor'
+                    schema:
+                        type: number
             responses:
                 '200':
-                    description: 'Successfully got users'
+                    description: 'Successfully got actor'
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/user'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /permission:
-        get:
-            summary: 'Get all permissions'
-            operationId: getAllpermission
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got permissions'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/permission'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /role:
-        get:
-            summary: 'Get all roles'
-            operationId: getAllrole
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got roles'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/role'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /role-has-permission:
-        get:
-            summary: 'Get all role-has-permissions'
-            operationId: getAllrole-has-permission
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got role-has-permissions'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/role-has-permission'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /user_role:
-        get:
-            summary: 'Get all user_roles'
-            operationId: getAlluser_role
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got user_roles'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/user_role'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /user_permission:
-        get:
-            summary: 'Get all user_permissions'
-            operationId: getAlluser_permission
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got user_permissions'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/user_permission'
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/actor'}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -144,25 +65,36 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/api_key'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/api_key'}}
                 default:
                     description: 'Unexpected error'
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    /api_key-has-role:
+    '/api_key({id})':
         get:
-            summary: 'Get all api_key-has-roles'
-            operationId: getAllapi_key-has-role
-            parameters: []
+            summary: 'Get api_key by id'
+            operationId: getapi_keyById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the api_key'
+                    schema:
+                        type: number
             responses:
                 '200':
-                    description: 'Successfully got api_key-has-roles'
+                    description: 'Successfully got api_key'
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/api_key-has-role'
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/api_key'}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -180,61 +112,83 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/api_key-has-permission'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/api_key-has-permission'}}
                 default:
                     description: 'Unexpected error'
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    /user_public_key:
+    '/api_key-has-permission({id})':
         get:
-            summary: 'Get all user_public_keys'
-            operationId: getAlluser_public_key
-            parameters: []
+            summary: 'Get api_key-has-permission by id'
+            operationId: getapi_key-has-permissionById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the api_key-has-permission'
+                    schema:
+                        type: number
             responses:
                 '200':
-                    description: 'Successfully got user_public_keys'
+                    description: 'Successfully got api_key-has-permission'
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/user_public_key'
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/api_key-has-permission'}
                 default:
                     description: 'Unexpected error'
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    /social_service_account:
+    /api_key-has-role:
         get:
-            summary: 'Get all social_service_accounts'
-            operationId: getAllsocial_service_account
+            summary: 'Get all api_key-has-roles'
+            operationId: getAllapi_key-has-role
             parameters: []
             responses:
                 '200':
-                    description: 'Successfully got social_service_accounts'
+                    description: 'Successfully got api_key-has-roles'
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/social_service_account'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/api_key-has-role'}}
                 default:
                     description: 'Unexpected error'
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    /build:
+    '/api_key-has-role({id})':
         get:
-            summary: 'Get all builds'
-            operationId: getAllbuild
-            parameters: []
+            summary: 'Get api_key-has-role by id'
+            operationId: getapi_key-has-roleById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the api_key-has-role'
+                    schema:
+                        type: number
             responses:
                 '200':
-                    description: 'Successfully got builds'
+                    description: 'Successfully got api_key-has-role'
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/build'
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/api_key-has-role'}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -252,115 +206,36 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/application'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/application'}}
                 default:
                     description: 'Unexpected error'
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    /user_application_membership:
+    '/application({id})':
         get:
-            summary: 'Get all user_application_memberships'
-            operationId: getAlluser_application_membership
-            parameters: []
+            summary: 'Get application by id'
+            operationId: getapplicationById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the application'
+                    schema:
+                        type: number
             responses:
                 '200':
-                    description: 'Successfully got user_application_memberships'
+                    description: 'Successfully got application'
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/user_application_membership'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /supervisor_release:
-        get:
-            summary: 'Get all supervisor_releases'
-            operationId: getAllsupervisor_release
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got supervisor_releases'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/supervisor_release'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /service_instance:
-        get:
-            summary: 'Get all service_instances'
-            operationId: getAllservice_instance
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got service_instances'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/service_instance'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /device:
-        get:
-            summary: 'Get all devices'
-            operationId: getAlldevice
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got devices'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/device'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /environment_variable:
-        get:
-            summary: 'Get all environment_variables'
-            operationId: getAllenvironment_variable
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got environment_variables'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/environment_variable'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /device_environment_variable:
-        get:
-            summary: 'Get all device_environment_variables'
-            operationId: getAlldevice_environment_variable
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got device_environment_variables'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/device_environment_variable'
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/application'}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -378,79 +253,36 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/beta_signup'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/beta_signup'}}
                 default:
                     description: 'Unexpected error'
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
-    /csp_report:
+    '/beta_signup({id})':
         get:
-            summary: 'Get all csp_reports'
-            operationId: getAllcsp_report
-            parameters: []
+            summary: 'Get beta_signup by id'
+            operationId: getbeta_signupById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the beta_signup'
+                    schema:
+                        type: number
             responses:
                 '200':
-                    description: 'Successfully got csp_reports'
+                    description: 'Successfully got beta_signup'
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/csp_report'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /event:
-        get:
-            summary: 'Get all events'
-            operationId: getAllevent
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got events'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/event'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /image_download:
-        get:
-            summary: 'Get all image_downloads'
-            operationId: getAllimage_download
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got image_downloads'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/image_download'
-                default:
-                    description: 'Unexpected error'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Error'
-    /config:
-        get:
-            summary: 'Get all configs'
-            operationId: getAllconfig
-            parameters: []
-            responses:
-                '200':
-                    description: 'Successfully got configs'
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/config'
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/beta_signup'}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -468,7 +300,459 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/billing_plan'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/billing_plan'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/billing_plan({id})':
+        get:
+            summary: 'Get billing_plan by id'
+            operationId: getbilling_planById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the billing_plan'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got billing_plan'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/billing_plan'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /build:
+        get:
+            summary: 'Get all builds'
+            operationId: getAllbuild
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got builds'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/build'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/build({id})':
+        get:
+            summary: 'Get build by id'
+            operationId: getbuildById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the build'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got build'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/build'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /config:
+        get:
+            summary: 'Get all configs'
+            operationId: getAllconfig
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got configs'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/config'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/config({id})':
+        get:
+            summary: 'Get config by id'
+            operationId: getconfigById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the config'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got config'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/config'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /csp_report:
+        get:
+            summary: 'Get all csp_reports'
+            operationId: getAllcsp_report
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got csp_reports'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/csp_report'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/csp_report({id})':
+        get:
+            summary: 'Get csp_report by id'
+            operationId: getcsp_reportById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the csp_report'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got csp_report'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/csp_report'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /device:
+        get:
+            summary: 'Get all devices'
+            operationId: getAlldevice
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got devices'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/device'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/device({id})':
+        get:
+            summary: 'Get device by id'
+            operationId: getdeviceById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the device'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got device'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/device'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /device_environment_variable:
+        get:
+            summary: 'Get all device_environment_variables'
+            operationId: getAlldevice_environment_variable
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got device_environment_variables'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/device_environment_variable'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/device_environment_variable({id})':
+        get:
+            summary: 'Get device_environment_variable by id'
+            operationId: getdevice_environment_variableById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the device_environment_variable'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got device_environment_variable'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/device_environment_variable'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /environment_variable:
+        get:
+            summary: 'Get all environment_variables'
+            operationId: getAllenvironment_variable
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got environment_variables'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/environment_variable'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/environment_variable({id})':
+        get:
+            summary: 'Get environment_variable by id'
+            operationId: getenvironment_variableById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the environment_variable'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got environment_variable'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/environment_variable'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /event:
+        get:
+            summary: 'Get all events'
+            operationId: getAllevent
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got events'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/event'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/event({id})':
+        get:
+            summary: 'Get event by id'
+            operationId: geteventById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the event'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got event'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/event'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /image_download:
+        get:
+            summary: 'Get all image_downloads'
+            operationId: getAllimage_download
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got image_downloads'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/image_download'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/image_download({id})':
+        get:
+            summary: 'Get image_download by id'
+            operationId: getimage_downloadById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the image_download'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got image_download'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/image_download'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /permission:
+        get:
+            summary: 'Get all permissions'
+            operationId: getAllpermission
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got permissions'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/permission'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/permission({id})':
+        get:
+            summary: 'Get permission by id'
+            operationId: getpermissionById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the permission'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got permission'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/permission'}
                 default:
                     description: 'Unexpected error'
                     content:
@@ -486,7 +770,506 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/recovery_two_factor'
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/recovery_two_factor'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/recovery_two_factor({id})':
+        get:
+            summary: 'Get recovery_two_factor by id'
+            operationId: getrecovery_two_factorById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the recovery_two_factor'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got recovery_two_factor'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/recovery_two_factor'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /role:
+        get:
+            summary: 'Get all roles'
+            operationId: getAllrole
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got roles'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/role'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/role({id})':
+        get:
+            summary: 'Get role by id'
+            operationId: getroleById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the role'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got role'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/role'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /role-has-permission:
+        get:
+            summary: 'Get all role-has-permissions'
+            operationId: getAllrole-has-permission
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got role-has-permissions'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/role-has-permission'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/role-has-permission({id})':
+        get:
+            summary: 'Get role-has-permission by id'
+            operationId: getrole-has-permissionById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the role-has-permission'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got role-has-permission'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/role-has-permission'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /service_instance:
+        get:
+            summary: 'Get all service_instances'
+            operationId: getAllservice_instance
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got service_instances'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/service_instance'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/service_instance({id})':
+        get:
+            summary: 'Get service_instance by id'
+            operationId: getservice_instanceById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the service_instance'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got service_instance'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/service_instance'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /social_service_account:
+        get:
+            summary: 'Get all social_service_accounts'
+            operationId: getAllsocial_service_account
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got social_service_accounts'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/social_service_account'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/social_service_account({id})':
+        get:
+            summary: 'Get social_service_account by id'
+            operationId: getsocial_service_accountById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the social_service_account'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got social_service_account'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/social_service_account'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /supervisor_release:
+        get:
+            summary: 'Get all supervisor_releases'
+            operationId: getAllsupervisor_release
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got supervisor_releases'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/supervisor_release'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/supervisor_release({id})':
+        get:
+            summary: 'Get supervisor_release by id'
+            operationId: getsupervisor_releaseById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the supervisor_release'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got supervisor_release'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/supervisor_release'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user:
+        get:
+            summary: 'Get all users'
+            operationId: getAlluser
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got users'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/user'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/user({id})':
+        get:
+            summary: 'Get user by id'
+            operationId: getuserById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the user'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got user'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/user'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_application_membership:
+        get:
+            summary: 'Get all user_application_memberships'
+            operationId: getAlluser_application_membership
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_application_memberships'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_application_membership'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/user_application_membership({id})':
+        get:
+            summary: 'Get user_application_membership by id'
+            operationId: getuser_application_membershipById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the user_application_membership'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got user_application_membership'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/user_application_membership'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_permission:
+        get:
+            summary: 'Get all user_permissions'
+            operationId: getAlluser_permission
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_permissions'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_permission'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/user_permission({id})':
+        get:
+            summary: 'Get user_permission by id'
+            operationId: getuser_permissionById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the user_permission'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got user_permission'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/user_permission'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_public_key:
+        get:
+            summary: 'Get all user_public_keys'
+            operationId: getAlluser_public_key
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_public_keys'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_public_key'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/user_public_key({id})':
+        get:
+            summary: 'Get user_public_key by id'
+            operationId: getuser_public_keyById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the user_public_key'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got user_public_key'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/user_public_key'}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /user_role:
+        get:
+            summary: 'Get all user_roles'
+            operationId: getAlluser_role
+            parameters: []
+            responses:
+                '200':
+                    description: 'Successfully got user_roles'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {type: array, items: {$ref: '#/components/schemas/user_role'}}
+                default:
+                    description: 'Unexpected error'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/user_role({id})':
+        get:
+            summary: 'Get user_role by id'
+            operationId: getuser_roleById
+            parameters:
+                -
+                    name: id
+                    in: path
+                    require: true
+                    description: 'The id of the user_role'
+                    schema:
+                        type: number
+            responses:
+                '200':
+                    description: 'Successfully got user_role'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    d: {$ref: '#/components/schemas/user_role'}
                 default:
                     description: 'Unexpected error'
                     content:

@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { Oas, OasDataType } from './oas-schema';
-import { PineSchema, DataType as PineDataType } from './pine-schema';
+import { PineSchema, DataType as PineDataType, Table } from './pine-schema';
 
 export function generateOas(pine: PineSchema): Oas {
     const oas: Oas = {
@@ -27,16 +27,16 @@ export function generateOas(pine: PineSchema): Oas {
 function addModels(oas: Oas, pine: PineSchema) {
     oas.components = oas.components || {};
     oas.components.schemas = _(pine.tables)
-        .mapKeys((table, name) => getResourceName(name, pine))
+        .mapKeys((table) => getResourceName(table, pine))
         .mapValues((table) => ({
-        required: table.fields.filter(f => f.required).map(f => f.fieldName),
-        properties: _(table.fields)
-            .keyBy((f) => getFieldName(f.fieldName))
-            .mapValues((f) => ({
-                type: mapType(f.dataType),
-                nullable: !f.required
-            }))
-            .valueOf()
+            required: table.fields.filter(f => f.required).map(f => f.fieldName),
+            properties: _(table.fields)
+                .keyBy((f) => getFieldName(f.fieldName))
+                .mapValues((f) => ({
+                    type: mapType(f.dataType),
+                    nullable: !f.required
+                }))
+                .valueOf()
         }))
         .valueOf();
 
@@ -45,7 +45,8 @@ function addModels(oas: Oas, pine: PineSchema) {
     }
 }
 
-function getResourceName(tableName: string, pine: PineSchema): string {
+function getResourceName(table: Table, pine: PineSchema): string {
+    let tableName = table.resourceName;
     let synonym = _.findKey(pine.synonyms, (p) => p === tableName);
     tableName = synonym || tableName;
 
@@ -78,37 +79,93 @@ function mapType(type: PineDataType): OasDataType {
 }
 
 function addPaths(oas: Oas, pine: PineSchema) {
-    oas.paths = {};
+    const models = _(pine.tables)
+    .values()
+    .sortBy((m) => getResourceName(m, pine))
+    .map((model) => {
+        const name = getResourceName(model, pine);
 
-    // Collection endpoints
-    oas.paths = _(pine.tables)
-        .mapKeys((table, name) => getResourceName(name, pine))
-        .mapValues((table, name) => ({
-            get: {
-                summary: `Get all ${name}s`,
-                operationId: `getAll${name}`,
-                parameters: [],
-                responses: {
-                    '200': {
-                        description: `Successfully got ${name}s`,
-                        content: {
-                            'application/json': {
-                                schema: { '$ref': `#/components/schemas/${name}` }
+        return {
+            [`/${name}`]: {
+                get: {
+                    summary: `Get all ${name}s`,
+                    operationId: `getAll${name}`,
+                    parameters: [],
+                    responses: {
+                        '200': {
+                            description: `Successfully got ${name}s`,
+                            content: {
+                                'application/json': {
+                                    schema: {
+                                        type: "object",
+                                        properties: {
+                                            d: {
+                                                type: "array",
+                                                items: {
+                                                    '$ref': `#/components/schemas/${name}`
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
-                        }
-                    },
-                    default: {
-                        description: 'Unexpected error',
-                        content: {
-                            'application/json': {
-                                schema: { '$ref': `#/components/schemas/Error` }
+                        },
+                        default: {
+                            description: 'Unexpected error',
+                            content: {
+                                'application/json': {
+                                    schema: { '$ref': `#/components/schemas/Error` }
+                                }
                             }
                         }
                     }
                 }
-            }}))
-        .mapKeys((table, name) => `/${name}`)
-        .valueOf();
+            },
+            [`/${name}({id})`]: {
+                get: {
+                    summary: `Get ${name} by id`,
+                    operationId: `get${name}ById`,
+                    parameters: [{
+                        name: 'id',
+                        in: 'path',
+                        require: true,
+                        description: `The id of the ${name}`,
+                        schema: { type: 'number' }
+                    }],
+                    responses: {
+                        '200': {
+                            description: `Successfully got ${name}`,
+                            content: {
+                                'application/json': {
+                                    schema: {
+                                        type: "object",
+                                        properties: {
+                                            d: {
+                                                type: "array",
+                                                items: {
+                                                    '$ref': `#/components/schemas/${name}`
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        default: {
+                            description: 'Unexpected error',
+                            content: {
+                                'application/json': {
+                                    schema: { '$ref': `#/components/schemas/Error` }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }).valueOf();
+
+    oas.paths = _.reduce(models, _.assign);
 }
 
 function addSecurity(oas: Oas) {
